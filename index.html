@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Han Jung-su — NFT artist and poet. Discover Han's work and connect through various platforms." />
-  <title>Han Jung-su — Links</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <title>DANN© Links</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #111;
+      background-color: #000;
       font-family: 'Inter', sans-serif;
       color: white;
       display: flex;
@@ -19,82 +16,75 @@
       align-items: center;
       min-height: 100vh;
     }
-
     .container {
       display: flex;
+      flex-wrap: wrap;
       gap: 40px;
       padding: 40px;
-      max-width: 1000px;
-      flex-wrap: wrap;
+      max-width: 1100px;
+      width: 100%;
     }
-
     .info {
-      flex: 1 1 300px;
+      flex: 1 1 350px;
+      max-width: 500px;
     }
-
     .info h1 {
       font-size: 28px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
-
     .info p {
       color: #aaa;
-      line-height: 1.5;
+      line-height: 1.6;
+      font-size: 14px;
     }
-
-    .buttons {
+    .section-title {
       margin-top: 30px;
+      font-size: 14px;
+      color: #666;
+      text-transform: uppercase;
     }
-
+    .buttons {
+      margin-top: 10px;
+    }
     .btn {
       display: flex;
       align-items: center;
-      gap: 10px;
-      background-color: #222;
-      border-radius: 10px;
-      padding: 14px 20px;
+      justify-content: space-between;
+      background-color: #111;
+      border-radius: 100px;
+      padding: 12px 20px;
       margin-bottom: 12px;
       color: white;
       text-decoration: none;
-      transition: background 0.2s ease;
+      font-size: 15px;
+      border: 1px solid #333;
     }
-
     .btn:hover {
-      background-color: #333;
+      background-color: #222;
     }
-
-    .btn img {
-      width: 20px;
-      height: 20px;
+    .btn span {
+      opacity: 0.6;
+      font-size: 12px;
     }
-
     .preview {
       flex: 1 1 300px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
     .preview img {
       width: 100%;
       max-width: 400px;
-      border-radius: 12px;
+      border-radius: 8px;
     }
-
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
         align-items: center;
         padding: 20px;
       }
-
       .btn {
         width: 100%;
-        justify-content: center;
-      }
-
-      .preview img {
-        max-width: 100%;
       }
     }
   </style>
@@ -102,21 +92,28 @@
 <body>
   <div class="container">
     <div class="info">
-      <h1>Han Jung-su</h1>
+      <h1>DANN©</h1>
       <p>
-        Punk #0858. Artist and poet within the NFT space.<br />
-        His work draws on his relationship to femininity, emotion, and identity.
+        Freelance web designer for: Deadfellaz, Google, Airbnb, ESPN, NFL,<br>
+        Disney, National Geographic, Billabong, Red Bull, and more.<br><br>
+        Co-Founder + Designer <strong>urlz.com</strong>.<br>
+        Design Teacher <strong>DesignFulltime.com</strong>.
       </p>
+
+      <div class="section-title">NFT Projects</div>
       <div class="buttons">
-        <a href="https://opensea.io/..." class="btn"><img src="icon1.svg" alt="OpenSea" />Shop NFTs on OpenSea</a>
-        <a href="https://superrare.com/..." class="btn"><img src="icon2.svg" alt="SuperRare" />Shop NFTs on SuperRare</a>
-        <a href="https://shop.com" class="btn"><img src="icon3.svg" alt="Shop Prints" />Shop Prints</a>
-        <a href="https://portfolio.com" class="btn"><img src="icon4.svg" alt="Portfolio" />My Portfolio</a>
-        <a href="https://discord.com/..." class="btn"><img src="icon5.svg" alt="Discord" />Join Discord</a>
+        <a href="https://opensea.io/collection/surf-dreamz" class="btn">Surf Dreamz <span>opensea.io/collection/surf-dreamz</span></a>
+        <a href="https://foundation.app/@dannpetty" class="btn">Foundation <span>foundation.app/@dannpetty</span></a>
+      </div>
+
+      <div class="section-title">Design Stuff</div>
+      <div class="buttons">
+        <a href="https://designfulltime.com" class="btn">Web Design Course <span>designfulltime.com</span></a>
+        <a href="https://dann.thatportfolio.com" class="btn">Web Design Portfolio <span>dann.thatportfolio.com</span></a>
       </div>
     </div>
     <div class="preview">
-      <img src="yourart.jpg" alt="NFT artwork by Han Jung-su" />
+      <img src="your-image.png" alt="Profile Artwork" />
     </div>
   </div>
 </body>
