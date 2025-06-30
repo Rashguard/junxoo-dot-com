@@ -12,6 +12,15 @@
       font-family: 'Inter', sans-serif;
       color: white;
     }
+    .white-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .white-link:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
     .white-text {
       color: white;
     }
@@ -49,20 +58,18 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      background-color: #111;
+      background-color: #222;
       border-radius: 999px;
       padding: 14px 20px;
       margin-bottom: 12px;
       color: white;
       text-decoration: none;
       font-size: 15px;
-      border: 1px solid #333;
       transition: all 0.25s ease;
     }
     .btn:hover {
-      background-color: #fff;
-      color: #000;
-      border-color: #fff;
+      background-color: #444;
+      color: white;
     }
     .btn:hover span {
       opacity: 0.8;
@@ -70,7 +77,7 @@
     .btn-icon {
       width: 32px;
       height: 32px;
-      background-color: #000;
+      background-color: #111;
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -136,8 +143,17 @@
       .container {
         padding: 20px;
       }
-      .btn {
+      .info {
+        text-align: left;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         width: 100%;
+      }
+      .btn {
+        width: auto;
       }
     }
   </style>
@@ -148,14 +164,19 @@
       <img src="your-image.png" alt="Profile Artwork" />
     </div>
     <div class="info">
-      <h1>한정수 HAN Jung-su 韓政洙</h1>
+      <h1>한정수 HAN Jung-su 韓政沙</h1>
       <p>
-        Investor 
+        Investor <br>
         Freelance web designer for: Deadfellaz, Google, Airbnb, ESPN, NFL,<br>
         Disney, National Geographic, Billabong, Red Bull, and more.<br><br>
-        Co-Founder + Designer <span class="white-text">urlz.com</span>.<br>
-        Design Teacher <span class="white-text">DesignFulltime.com</span>.
+        Co-Founder + Board Member <a href="https://clubalpha.kr" class="white-link" target="_blank">Club Alpha</span>.<br>
+        CEO + Director <a href="https://yeonducorp.com" class="white-link" target="_blank">Yeondu Company</span>.
       </p>
+
+      <p>
+  Co-Founder + Designer <a href="https://urlz.com" class="white-link" target="_blank">urlz.com</a>.<br>
+  Design Teacher <a href="https://designfulltime.com" class="white-link" target="_blank">DesignFulltime.com</a>.
+</p>
 
       <div class="section-title">Connect with me</div>
       <div class="buttons">
@@ -177,29 +198,28 @@
           <div class="btn-icon"><img src="linkedin-icon.svg" alt="LinkedIn"></div>
           <div class="btn-content">
             <strong>LinkedIn 한정수</strong>
-            <span>https://www.linkedin.com/in/junxoo/</span>
+            <span>linkedin.com/in/junxoo</span>
           </div>
         </a>
       </div>
 
       <div class="section-title">Projects</div>
       <div class="buttons">
-        <a href="https://designfulltime.com" class="btn">
+        <a href="https://https://mdcc.co.kr/" class="btn">
           <div class="btn-icon"><img src="arrow-icon.svg" alt="Link"></div>
           <div class="btn-content">
-            <strong>Web Design Course</strong>
-            <span>designfulltime.com</span>
+            <strong>Monday Cognac Club 공식 온라인 스토어</strong>
+            <span>mdcc.co.kr</span>
           </div>
         </a>
-        <a href="https://dann.thatportfolio.com" class="btn">
+        <a href="https://www.yes24.com/Product/Goods/142234889" class="btn">
           <div class="btn-icon"><img src="arrow-icon.svg" alt="Link"></div>
           <div class="btn-content">
-            <strong>Web Design Portfolio</strong>
-            <span>dann.thatportfolio.com</span>
+            <strong>파이어드: 부의 해방일지</strong>
+            <span>yes24.com</span>
           </div>
         </a>
       </div>
-      
     </div>
   </div>
 </body>
