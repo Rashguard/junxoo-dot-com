@@ -49,20 +49,47 @@
     .btn {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 14px;
       background-color: #111;
-      border-radius: 100px;
-      padding: 12px 20px;
+      border-radius: 999px;
+      padding: 14px 20px;
       margin-bottom: 12px;
       color: white;
       text-decoration: none;
       font-size: 15px;
       border: 1px solid #333;
+      transition: all 0.25s ease;
     }
     .btn:hover {
-      background-color: #222;
+      background-color: #fff;
+      color: #000;
+      border-color: #fff;
     }
-    .btn span {
+    .btn:hover span {
+      opacity: 0.8;
+    }
+    .btn-icon {
+      width: 32px;
+      height: 32px;
+      background-color: #000;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .btn-icon img {
+      width: 16px;
+      height: 16px;
+    }
+    .btn-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .btn-content strong {
+      font-weight: 600;
+    }
+    .btn-content span {
       opacity: 0.6;
       font-size: 12px;
     }
@@ -102,14 +129,38 @@
 
       <div class="section-title">NFT Projects</div>
       <div class="buttons">
-        <a href="https://opensea.io/collection/surf-dreamz" class="btn">Surf Dreamz <span>opensea.io/collection/surf-dreamz</span></a>
-        <a href="https://foundation.app/@dannpetty" class="btn">Foundation <span>foundation.app/@dannpetty</span></a>
+        <a href="https://opensea.io/collection/surf-dreamz" class="btn">
+          <div class="btn-icon"><img src="opensea-icon.svg" alt="OpenSea"></div>
+          <div class="btn-content">
+            <strong>Surf Dreamz</strong>
+            <span>opensea.io/collection/surf-dreamz</span>
+          </div>
+        </a>
+        <a href="https://foundation.app/@dannpetty" class="btn">
+          <div class="btn-icon"><img src="foundation-icon.svg" alt="Foundation"></div>
+          <div class="btn-content">
+            <strong>Foundation</strong>
+            <span>foundation.app/@dannpetty</span>
+          </div>
+        </a>
       </div>
 
       <div class="section-title">Design Stuff</div>
       <div class="buttons">
-        <a href="https://designfulltime.com" class="btn">Web Design Course <span>designfulltime.com</span></a>
-        <a href="https://dann.thatportfolio.com" class="btn">Web Design Portfolio <span>dann.thatportfolio.com</span></a>
+        <a href="https://designfulltime.com" class="btn">
+          <div class="btn-icon"><img src="arrow-icon.svg" alt="Link"></div>
+          <div class="btn-content">
+            <strong>Web Design Course</strong>
+            <span>designfulltime.com</span>
+          </div>
+        </a>
+        <a href="https://dann.thatportfolio.com" class="btn">
+          <div class="btn-icon"><img src="arrow-icon.svg" alt="Link"></div>
+          <div class="btn-content">
+            <strong>Web Design Portfolio</strong>
+            <span>dann.thatportfolio.com</span>
+          </div>
+        </a>
       </div>
     </div>
     <div class="preview">
