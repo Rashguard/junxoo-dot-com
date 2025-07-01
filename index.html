@@ -191,15 +191,12 @@
         padding: 16px;
         max-width: 96vw;
       }
-      .preview::after {
+      .preview::before {
         content: "";
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(to left, rgba(0,0,0,0.65), transparent);
-        z-index: 2;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,85) 10%, rgba(0,0,0,0.1) 90%);
+        z-index: 1;
       }
       .info {
         position: absolute;
