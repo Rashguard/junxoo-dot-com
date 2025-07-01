@@ -160,7 +160,10 @@
         z-index: 1;
       }
       .info {
-        position: relative;
+        position: absolute;
+        top: 40%; /* 변경: 가슴쯤에 배치되도록 */
+        left: 50%;
+        transform: translate(-50%, -50%);
         z-index: 2;
         padding: 20px;
         background-color: transparent;
@@ -180,7 +183,7 @@
         width: 100%;
       }
       .btn {
-        width: 100%;
+        width: auto%;
       }
     }
   </style>
@@ -191,7 +194,7 @@
       <img src="junxoo_profile.jpg" alt="Profile" />
     </div>
     <div class="info">
-      <h1>한정수 HAN Jung-su 韓政沙</h1>
+      <h1>한정수 HAN Jung-su 韓政洙</h1>
       <p>
         Investor <br>
         Freelance web designer for: Deadfellaz, Google, Airbnb, ESPN, NFL,<br>
