@@ -56,6 +56,43 @@
       max-width: 1600px;
       margin: 0 auto;*/
     }
+    /* 사진 섹션 */
+    .preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 50vw - 40;
+      z-index: 1;
+    }
+    .preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+    }
+    /* 오른쪽 그라데이션 오버레이 */
+    .preview::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(0,0,0,0.65), transparent);
+      z-index: 2;
+    }
+    /*
+    .preview {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+    .preview img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    */
     .info {
       position: absolute;
       top: 0;
@@ -144,44 +181,6 @@
       opacity: 0.6;
       font-size: 12px;
     }
-    /* 사진 섹션 */
-    .preview {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      max-width: 45vw;
-      height: 100vh;
-      z-index: 1;
-    }
-    .preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top left;
-    }
-    /* 오른쪽 그라데이션 오버레이 */
-    .preview::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(to left, rgba(0,0,0,0.65), transparent);
-      z-index: 2;
-    }
-    /*
-    .preview {
-      flex: 1;
-      position: relative;
-      z-index: 1;
-    }
-    .preview img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    */
     /* Responsive Layout */
     @media (max-width: 1024px) {
       .container {
