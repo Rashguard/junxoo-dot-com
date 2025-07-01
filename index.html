@@ -67,8 +67,8 @@
     }
     .preview img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      border-radius: 8px;
+      /*object-fit: cover;*/
       object-position: top left;
     }
     /* 오른쪽 그라데이션 오버레이 */
@@ -195,14 +195,19 @@
         position: absolute;
         inset: 0;
         background: linear-gradient(to top, rgba(0,0,0,85) 10%, rgba(0,0,0,0.1) 90%);
-        z-index: 1;
+        z-index: 2;
+      }
+      .preview::after {
+        content: none;
+        background: none;
+        display: none;
       }
       .info {
         position: absolute;
         top: 70%;
         left: 50%;
         transform: translate(-50%, 0%);
-        z-index: 2;
+        z-index: 3;
         padding: 20px;
         background-color: transparent;
       }
