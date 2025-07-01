@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- 1. 필수 기본 세팅 -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 2. 타이틀 -->
   <title>HAN Jung-su Links</title>
+
+  <!-- 3. favicon 및 스타일 -->
+  <link rel="icon" href="sesang.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+
+  <!-- 4. SEO & 기본 설명 -->
+  <meta name="description" content="HAN Jung-su's official link page: investor, designer, educator. Explore content, projects, and contact links." />
+
+  <!-- 5. Open Graph (페이스북, 카카오 등) -->
+  <meta property="og:title" content="HAN Jung-su Connect" />
+  <meta property="og:description" content="Follow HAN Jung-su's work across YouTube, Instagram, LinkedIn, and explore his design and investment ventures." />
+  <meta property="og:image" content="https://junxoo.com/og-image.png" />
+  <meta property="og:url" content="https://junxoo.com" />
+  
+  <!-- 6. Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     body {
       margin: 0;
@@ -71,7 +91,16 @@
       background-color: #444;
       color: white;
     }
-    .btn:hover span {
+    .btn-orange {
+      background-color: #fa5a00;
+      color: #fff;
+    }
+    .btn-orange:hover {
+      background-color: #ff7f1a;
+      color: #fff;
+    }
+    .btn:hover span,
+    .btn-orange:hover span {
       opacity: 0.8;
     }
     .btn-icon {
