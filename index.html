@@ -53,8 +53,7 @@
     /* 사진 섹션 */
     .preview {
       position: absolute;
-      top: 40px;
-      right: 40px;
+      padding: 40px;
       width: 100%;
       height: 100%;
       max-width: calc(50vw - 40px);
@@ -181,6 +180,7 @@
       .preview {
       flex: 1;
       position: relative;
+      max-width: calc(100vw - 32px);
       z-index: 1;
       }
       .preview::before {
@@ -200,6 +200,8 @@
         top: 70%;
         left: 50%;
         transform: translate(-50%, 0%);
+        width: 100%
+        max-width: calc(100vw - 32px);
         z-index: 3;
         padding: 20px;
         background-color: transparent;
