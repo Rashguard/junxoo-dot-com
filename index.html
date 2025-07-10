@@ -192,7 +192,7 @@
         flex: 1;
         position: static;
         max-width: calc(100vw - 32px);
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         z-index: 1;
         height: auto;
       }
@@ -216,19 +216,22 @@
       }
       .info {
         position: static;
-        top: 70%;
-        left: 50%;
         transform: translate(-50%, 0%);
         width: 100%;
         max-width: calc(100vw - 32px);
         z-index: 3;
-        padding: 20px;
+        padding: 0 16px;
         background-color: transparent;
         flex: 1;
       }
       .buttons {
-        align-items: center;
+        align-items: stretch;
         width: 100%;
+      }
+      .btn {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 12px 0;
       }
     }
   </style>
