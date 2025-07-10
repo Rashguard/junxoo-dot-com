@@ -187,6 +187,12 @@
       max-width: calc(100vw - 32px);
       z-index: 1;
       }
+      .preview img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* 또는 unset */
+      object-position: top center;
+      }
       .preview::before {
         content: "";
         position: absolute;
