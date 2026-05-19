@@ -1,5 +1,5 @@
-  <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko-KR">
 <head>
   <!-- 1. 필수 기본 세팅 -->
   <meta charset="UTF-8" />
@@ -20,9 +20,13 @@
   <meta property="og:description" content="Follow HAN Jung-su's work" />
   <meta property="og:image" content="https://junxoo.com/og-image.png" />
   <meta property="og:url" content="https://junxoo.com" />
+  <meta property="og:type" content="website" />
   
   <!-- 6. Twitter card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HAN Jung-su Connect" />
+  <meta name="twitter:description" content="Follow HAN Jung-su's work" />
+  <meta name="twitter:image" content="https://junxoo.com/og-image.png" />
 
   <style>
     body {
@@ -189,7 +193,7 @@
       .preview {
         order: 1;
         flex: 1;
-        position: static;
+        position: relative;
         max-width: calc(100vw - 32px);
         margin-bottom: 16px;
         padding: 10px;
@@ -205,8 +209,8 @@
       .preview::before {
         content: "";
         position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,85) 10%, rgba(0,0,0,0.1) 90%);
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 10%, rgba(0,0,0,0.1) 90%);
         z-index: 2;
       }
       .preview::after {
@@ -242,17 +246,17 @@
     <div class="info">
       <h1>한정수 HAN Jung-su</h1>
       <p>
-        Private Investor<br>
+        Investor, Storyteller<br>
         <br>
-        CEO + Director @ <a href="https://yeonducorp.com" class="white-link" target="_blank">Yeondu Company</a>.<br>
-        Co-Founder + Board Member @  <a href="https://clubalpha.kr" class="white-link" target="_blank">Club Alpha</a>.
+        CEO + Film Director @ <a href="https://yeonducorp.com" class="white-link" target="_blank" rel="noopener noreferrer">Yeondu Company</a>.<br>
+        Co-Founder @  <a href="https://clubalpha.kr" class="white-link" target="_blank" rel="noopener noreferrer">Club Alpha</a>.
       </p>
-      <div class="section-title">EVENT</div>
+      <div class="section-title">Study</div>
       <div class="buttons">
         <a href="https://fanding.kr/@sesang101/" class="btn btn-orange">
           <div class="btn-icon"><img src="youtube-icon.svg" alt="YouTube"></div>
           <div class="btn-content">
-            <strong>세상학개론 '투자전공반' 스터디</strong>
+            <strong>세상학개론 '투자전공반' 참여하기</strong>
             <span>fanding.kr/@sesang101</span>
           </div>
         </a>
@@ -283,15 +287,8 @@
         </a>
       </div>
 
-      <div class="section-title">Projects</div>
+      <div class="section-title">Read</div>
       <div class="buttons">
-        <a href="https://mdcc.co.kr/" class="btn">
-          <div class="btn-icon"><img src="clothes-icon.svg" alt="Link"></div>
-          <div class="btn-content">
-            <strong>Monday Cognac Club 공식 온라인 스토어</strong>
-            <span>mdcc.co.kr</span>
-          </div>
-        </a>
         <a href="https://www.yes24.com/Product/Goods/142234889" class="btn">
           <div class="btn-icon"><img src="book-icon.svg" alt="Link"></div>
           <div class="btn-content">
@@ -308,7 +305,6 @@
         </a>
       </div>
     </div>
-    <div class="section-title"></div>
     <div class="preview">
       <img src="junxoo_profile.jpg" alt="Profile" />
     </div>
