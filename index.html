@@ -250,6 +250,33 @@
     .btn-content strong { font-weight: 600; font-size: 14.5px; letter-spacing: -0.005em; }
     .btn-content span { color: var(--faint); font-size: 12px; letter-spacing: 0.01em; }
 
+    /* live follower figures, set like a small engraved counter */
+    .stat {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      flex-shrink: 0;
+      padding-left: 14px;
+      text-align: right;
+    }
+    .stat b {
+      font-weight: 650;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .stat i {
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .stat + .arrow { margin-left: 12px; }
+
     /* Featured / brand-accent button */
     .btn-orange {
       background: linear-gradient(135deg, #fa5a00, #ff7d2e);
@@ -443,6 +470,7 @@
             <strong>YouTube @세상학개론</strong>
             <span>youtube.com/@sesang101</span>
           </span>
+          <span class="stat"><b data-stat="youtube"></b><i>구독자</i></span>
           <span class="arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </span>
@@ -456,6 +484,7 @@
             <strong>Instagram @junxoo</strong>
             <span>instagram.com/junxoo</span>
           </span>
+          <span class="stat"><b data-stat="instagram"></b><i>팔로워</i></span>
           <span class="arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </span>
@@ -522,6 +551,27 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
+    /* ---- follower figures ----------------------------------------------
+       숫자가 바뀌면 아래 두 값만 수정하면 됩니다.
+       (정적 사이트라 자동 갱신은 불가 — YouTube Data API 키를 쓰면 자동화 가능)
+       -------------------------------------------------------------------- */
+    const STATS = {
+      youtube: 213000,     // 2026-06 기준
+      instagram: 10000     // TODO: 실제 팔로워 수로 수정
+    };
+    function formatKo(n) {
+      if (n >= 10000) {
+        const v = n / 10000;
+        return (v >= 100 ? Math.round(v) : v.toFixed(1).replace(/\.0$/, '')) + '만';
+      }
+      return n.toLocaleString('ko-KR');
+    }
+    document.querySelectorAll('[data-stat]').forEach((el) => {
+      const v = STATS[el.dataset.stat];
+      if (v != null) el.textContent = formatKo(v);
+      else el.closest('.stat').remove();
+    });
+
     /* =====================================================================
        Generative artwork — a dawn on a quiet horizon.
        Engraved guilloché circles, hairline orbits with slow satellites,
@@ -542,11 +592,44 @@
       let glints = [];
       let t = 0;
 
-      // gentle pointer parallax
+      // gentle pointer parallax + the occasional shooting star
       const pointer = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
+      let meteors = [];
+      let lastMeteor = 0;
+      let nextAmbient = 600;     // an unprompted one now and then
+
+      function spawnMeteor(nearX, nearY) {
+        let x, y;
+        if (nearX != null && nearX > -40 && nearX < w + 40 && nearY > -40 && nearY < h * 0.8) {
+          // born a little above where the eye is
+          x = nearX + (Math.random() - 0.5) * 140;
+          y = Math.max(16, nearY - 60 - Math.random() * 90);
+        } else {
+          x = w * (0.2 + Math.random() * 0.7);
+          y = h * (0.05 + Math.random() * 0.3);
+        }
+        const ang = Math.PI * (0.6 + Math.random() * 0.22);   // falling down-left
+        const sp = 2.6 + Math.random() * 2.2;
+        meteors.push({
+          x, y,
+          vx: Math.cos(ang) * sp,
+          vy: Math.sin(ang) * sp,
+          life: 0,
+          max: 55 + Math.random() * 35,
+          tail: 50 + Math.random() * 50
+        });
+      }
+
       window.addEventListener('pointermove', (e) => {
         pointer.tx = e.clientX / window.innerWidth;
         pointer.ty = e.clientY / window.innerHeight;
+        if (reduceMotion) return;
+        const now = performance.now();
+        if (now - lastMeteor > 2600 && Math.random() < 0.03) {
+          lastMeteor = now;
+          const rect = canvas.getBoundingClientRect();
+          spawnMeteor(e.clientX - rect.left, e.clientY - rect.top);
+        }
       }, { passive: true });
 
       function resize() {
@@ -638,18 +721,7 @@
         ctx.fillStyle = glow;
         ctx.fillRect(0, 0, w, h);
 
-        // --- guilloché: engraved concentric circles around the sun
-        for (let i = 1; i <= 7; i++) {
-          const rr = R * 0.085 * (1 + i * 0.62);
-          const fade = Math.max(0, 0.085 - i * 0.0095);
-          ctx.strokeStyle = champagne(fade);
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, rr, 0, Math.PI * 2);
-          ctx.stroke();
-        }
-
-        // --- sun core with a fine eclipse ring
+        // --- sun core
         const coreR = R * 0.075;
         const core = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, coreR);
         core.addColorStop(0, 'rgba(255, 222, 184, 0.95)');
@@ -659,12 +731,6 @@
         ctx.beginPath();
         ctx.arc(s.x, s.y, coreR, 0, Math.PI * 2);
         ctx.fill();
-
-        ctx.strokeStyle = champagne(0.34);
-        ctx.lineWidth = 0.8;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, coreR * 1.45, 0, Math.PI * 2);
-        ctx.stroke();
 
         // --- hairline orbits, satellites gliding at a stately pace
         const rings = [
@@ -721,6 +787,33 @@
         // --- star glints
         glints.forEach(drawGlint);
 
+        // --- shooting stars
+        meteors.forEach((m) => {
+          const env = Math.sin(Math.PI * (m.life / m.max));   // fade in, fade out
+          const len = m.tail * (0.6 + env * 0.4);
+          const sp = Math.hypot(m.vx, m.vy);
+          const tx = m.x - (m.vx / sp) * len;
+          const ty = m.y - (m.vy / sp) * len;
+          const trail = ctx.createLinearGradient(m.x, m.y, tx, ty);
+          trail.addColorStop(0, ivory(0.85 * env));
+          trail.addColorStop(0.4, champagne(0.35 * env));
+          trail.addColorStop(1, champagne(0));
+          ctx.strokeStyle = trail;
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.moveTo(m.x, m.y);
+          ctx.lineTo(tx, ty);
+          ctx.stroke();
+
+          const head = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, 5);
+          head.addColorStop(0, ivory(0.9 * env));
+          head.addColorStop(1, ivory(0));
+          ctx.fillStyle = head;
+          ctx.beginPath();
+          ctx.arc(m.x, m.y, 5, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
         // --- rising constellation, faint as breath
         const linkDist = Math.min(120, R * 0.16);
         ctx.lineWidth = 0.5;
@@ -768,6 +861,13 @@
         t++;
         pointer.x += (pointer.tx - pointer.x) * 0.04;
         pointer.y += (pointer.ty - pointer.y) * 0.04;
+
+        meteors.forEach((m) => { m.life++; m.x += m.vx; m.y += m.vy; });
+        meteors = meteors.filter((m) => m.life < m.max);
+        if (--nextAmbient <= 0) {
+          spawnMeteor(null, null);
+          nextAmbient = 700 + Math.random() * 700;   // roughly every 12-24s
+        }
 
         particles.forEach((p) => {
           p.y -= p.vy;
